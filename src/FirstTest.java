@@ -1,6 +1,8 @@
 import java.sql.Driver;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import javax.security.auth.x500.X500Principal;
@@ -69,10 +71,14 @@ public class FirstTest {
         }
        
     
+    
+    
+    
+    
     }
 
-    // driver.switchTo().window(Current_window_handle);
-    // driver.close();
+    driver.switchTo().window(Current_window_handle);
+    driver.close();
     }
 
     @AfterTest
@@ -82,6 +88,12 @@ public class FirstTest {
 driver.quit();
 }
 
+@Test
+void InteractWithIframes()
+{
+    driver.get("https://the-internet.herokuapp.com/iframe");
+    driver.switchTo().frame(0).findElement(By.tagName("p"));
+}
 
 
     @Test(priority = 2)
@@ -102,6 +114,23 @@ public void Test3(){
 
 }
 
+void ReverseList()
+{
+    int [] array = {1,2,3};
+    ArrayList<Integer> list=new ArrayList<Integer>();
+    for (int i=array.length-1 ; i>=0;i--)
+    {
+        list.add(array[i]);
+    
+    } 
+
+    System.out.println(list);
+
+}
+public static void main(String[] args) {
+  FirstTest firstTest = new FirstTest();
+  firstTest.ReverseList();
+}
 }
 
    
