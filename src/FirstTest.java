@@ -1,3 +1,4 @@
+
 import java.sql.Driver;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -7,10 +8,13 @@ import java.util.Set;
 
 import javax.security.auth.x500.X500Principal;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -114,6 +118,33 @@ public void Test3(){
 
 }
 
+
+
+
+
+
+
+
+
+
+@Test
+void HandleActions()
+{
+    
+    driver.get("https://the-internet.herokuapp.com");
+    Actions actions = new Actions(driver);
+   WebElement contextMenu=driver.findElement(By.xpath("//a[normalize-space()='Context Menu']"));
+    actions.click(contextMenu).perform();
+    WebElement box = driver.findElement(By.xpath("//div[@id='hot-spot']")); 
+actions.contextClick(box).perform();
+driver.switchTo().alert().accept();
+
+}
+
+
+
+
+
 void ReverseList()
 {
     int [] array = {1,2,3};
@@ -131,6 +162,16 @@ public static void main(String[] args) {
   FirstTest firstTest = new FirstTest();
   firstTest.ReverseList();
 }
+
+
+
+
+
+
+
+
+
+
 }
 
    
